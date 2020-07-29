@@ -19,7 +19,9 @@ class _PlayScreenState extends State<PlayScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("Opening Game $gameCode");
+    print("User has chosen $gameCode");
+    requestCurrentGameCode();
+
     return Scaffold(
         body: Container(
       color: Colors.blueGrey,
@@ -32,13 +34,22 @@ class _PlayScreenState extends State<PlayScreen> {
 
   void onUnityCreated(controller) {
     this._unityWidgetController = controller;
+    _unityWidgetController.postMessage(
+        'ChiefManager', 'LaunchGame', "$gameCode");
   }
 
   void onUnityMessage(controller, message) {
+    print("Message from Unity: $message");
     print("Asking Unity to start game $gameCode");
     // Specify game-to-start
-    if (message == "ChiefManagerRunning")
-      _unityWidgetController.postMessage(
-          'ChiefManager', 'LaunchGame', "$gameCode");
+    /* if (int.parse(message) != gameCode)*/
+    _unityWidgetController.postMessage(
+        'ChiefManager', 'LaunchGame', "$gameCode");
+  }
+
+  // Serves for waking Unity.
+  void requestCurrentGameCode() {
+    _unityWidgetController?.postMessage(
+        'ChiefManager', 'RequestCurrentGameMode', "");
   }
 }

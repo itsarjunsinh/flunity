@@ -6,37 +6,89 @@ using UnityEngine.SceneManagement;
 
 public class ChiefManager : MonoBehaviour
 {
+    public enum Games
+    {
+        ChiefScene,
+        BlueScene,
+        RedScene,
+        GreenScene,
+        PurpleScene,
+        BlackScene,
+        OrangeScene
+    }
     public void Start()
     {
-        UnityMessageManager.Instance.SendMessageToFlutter("ChiefManagerRunning");
+        /*if (Games.ChiefScene == (int)GetCurrentGame())
+        UnityMessageManager.Instance.SendMessageToFlutter(
+            ((int)GetCurrentGame()).ToString());*/
+
+    }
+
+    public Games GetCurrentGame()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        Games currentGame = 0;
+        try
+        {
+            switch (Enum.Parse(typeof(Games), scene.name))
+            {
+                case Games.BlueScene:
+                    currentGame = Games.BlueScene;
+                    break;
+                case Games.RedScene:
+                    currentGame = Games.RedScene;
+                    break;
+                case Games.GreenScene:
+                    currentGame = Games.GreenScene;
+                    break;
+                case Games.PurpleScene:
+                    currentGame = Games.PurpleScene;
+                    break;
+                case Games.BlackScene:
+                    currentGame = Games.BlackScene;
+                    break;
+                case Games.OrangeScene:
+                    currentGame = Games.OrangeScene;
+                    break;
+            }
+        }
+        catch (Exception) { };
+        return currentGame;
     }
 
     public void LaunchGame(String message)
     {
-        float gameCode = float.Parse(message);
-        if (gameCode == 1)
+        int gameCode = int.Parse(message);
+        switch (gameCode)
         {
-            SceneManager.LoadScene("BlueScene", LoadSceneMode.Single);
+            case (int)Games.BlueScene:
+                SceneManager.LoadScene(Games.BlueScene.ToString(), LoadSceneMode.Single);
+                break;
+            case (int)Games.RedScene:
+                SceneManager.LoadScene(Games.RedScene.ToString(), LoadSceneMode.Single);
+                break;
+            case (int)Games.GreenScene:
+                SceneManager.LoadScene(Games.GreenScene.ToString(), LoadSceneMode.Single);
+                break;
+            case (int)Games.PurpleScene:
+                SceneManager.LoadScene(Games.PurpleScene.ToString(), LoadSceneMode.Single);
+                break;
+            case (int)Games.BlackScene:
+                SceneManager.LoadScene(Games.BlackScene.ToString(), LoadSceneMode.Single);
+                break;
+            case (int)Games.OrangeScene:
+                SceneManager.LoadScene(Games.OrangeScene.ToString(), LoadSceneMode.Single);
+                break;
+            default:
+                SceneManager.LoadScene(Games.ChiefScene.ToString(), LoadSceneMode.Single);
+                break;
+
         }
-        else if (gameCode == 2)
-        {
-            SceneManager.LoadScene("RedScene", LoadSceneMode.Single);
-        }
-        else if (gameCode == 3)
-        {
-            SceneManager.LoadScene("GreenScene", LoadSceneMode.Single);
-        }
-        else if (gameCode == 4)
-        {
-            SceneManager.LoadScene("PurpleScene", LoadSceneMode.Single);
-        }
-        else if (gameCode == 5)
-        {
-            SceneManager.LoadScene("BlackScene", LoadSceneMode.Single);
-        }
-        else if (gameCode == 6)
-        {
-            SceneManager.LoadScene("OrangeScene", LoadSceneMode.Single);
-        }
+    }
+
+    public void RequestCurrentGameMode(String empty)
+    {
+        UnityMessageManager.Instance.SendMessageToFlutter(((int)GetCurrentGame()).ToString());
+
     }
 }
