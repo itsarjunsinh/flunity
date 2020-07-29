@@ -41,10 +41,10 @@ class Home extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 28.0)),
                 ),
                 onPressed: () => {
-                  print("Opening Game 1"),
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => PlayScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => PlayScreen(gameCode: 1)),
                   )
                 },
               ),
@@ -58,7 +58,13 @@ class Home extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 28.0),
                 ),
               ),
-              onPressed: () => {print("Opening Game 2")},
+              onPressed: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PlayScreen(gameCode: 2)),
+                )
+              },
             )
           ],
         ),
