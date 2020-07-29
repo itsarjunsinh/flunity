@@ -1,3 +1,4 @@
+import 'package:flunity/play_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,15 +14,50 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Scaffold(
-        body: Column(
+      home: Home(),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            RaisedButton(
-              child: Text('Game 1'),
-              onPressed: () => {print("Opening Game 1")},
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 16.0),
+              child: RaisedButton(
+                color: Colors.blue,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 20.0, 8.0, 20.0),
+                  child: Text('Game 1',
+                      style: TextStyle(color: Colors.white, fontSize: 28.0)),
+                ),
+                onPressed: () => {
+                  print("Opening Game 1"),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PlayScreen()),
+                  )
+                },
+              ),
             ),
             RaisedButton(
-              child: Text('Game 2'),
+              color: Colors.red,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(8.0, 20.0, 8.0, 20.0),
+                child: Text(
+                  'Game 2',
+                  style: TextStyle(color: Colors.white, fontSize: 28.0),
+                ),
+              ),
               onPressed: () => {print("Opening Game 2")},
             )
           ],
