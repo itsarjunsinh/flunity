@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RedScene.unity
     guid: e67c5a156a5284271af46078730879f0
+  - enabled: 1
+    path: Assets/Scenes/GreenScene.unity
+    guid: f4f841c535ec9811aba9ed651a5a833d
+  - enabled: 1
+    path: Assets/Scenes/PurpleScene.unity
+    guid: d1e30cc6de006dde3b21035aa92bb7bf
+  - enabled: 1
+    path: Assets/Scenes/BlackScene.unity
+    guid: 2530fd3b49df9843c821b788290aab7b
+  - enabled: 1
+    path: Assets/Scenes/OrangeScene.unity
+    guid: 5ef787b7824e339f69dc29daf133d09d
   m_configObjects: {}

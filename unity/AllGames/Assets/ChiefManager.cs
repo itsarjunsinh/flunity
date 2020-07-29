@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ChiefManager : MonoBehaviour
 {
-    public void Start() {
+    public void Start()
+    {
         UnityMessageManager.Instance.SendMessageToFlutter("ChiefManagerRunning");
     }
 
@@ -20,6 +21,22 @@ public class ChiefManager : MonoBehaviour
         else if (gameCode == 2)
         {
             SceneManager.LoadScene("RedScene", LoadSceneMode.Single);
+        }
+        else if (gameCode == 3)
+        {
+            SceneManager.LoadScene("GreenScene", LoadSceneMode.Single);
+        }
+        else if (gameCode == 4)
+        {
+            SceneManager.LoadScene("PurpleScene", LoadSceneMode.Single);
+        }
+        else if (gameCode == 5)
+        {
+            SceneManager.LoadScene("BlackScene", LoadSceneMode.Single);
+        }
+        else if (gameCode == 6)
+        {
+            SceneManager.LoadScene("OrangeScene", LoadSceneMode.Single);
         }
     }
 }
