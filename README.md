@@ -1,6 +1,6 @@
 # Flunity
 
-Flunity is a Flutter app that can launch multiple Unity Games (Game scenes). 
+Flunity is a Flutter app that can launch multiple Unity Games (Game scenes). The games are packaged inside the Flutter app. 
 
 Flunity uses a custom script in the Unity project that changes the scene based on user's selection in the Flutter side of the app.
 
