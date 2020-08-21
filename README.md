@@ -1,16 +1,18 @@
-# flunity
+# Flunity
 
-A new Flutter project.
+Flunity is a Flutter app that can launch multiple Unity Games (Game scenes). 
 
-## Getting Started
+Flunity uses a custom script in the Unity project that changes the scene based on user's selection in the Flutter side of the app.
 
-This project is a starting point for a Flutter application.
+![Flunity Game Launch](assets/demo.gif)
 
-A few resources to get you started if this is your first Flutter project:
+## Links
+[Download](https://github.com/itsarjunsinh/flunity/releases) | [Watch Demo](https://www.youtube.com/watch?v=Z4-SWY1wM6s)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Credits
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Flutter Unity Widget](https://github.com/snowballdigital/flutter-unity-view-widget) for embedding Unity view.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). 
